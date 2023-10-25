@@ -5,7 +5,6 @@ import javax.swing.*;
 import Work_12.Position;
 
 import java.awt.*;
-import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -36,31 +35,36 @@ public class Task1 extends JFrame {
 
         int randX;
         int randY;
+        int randSize;
 
         while (true) {
             randX = random.nextInt(WIDTH) + 1;
             randY = random.nextInt(HEIGHT) + 1;
 
-            if (randX + 50 > WIDTH) {
-                randX -= 50;
+            randSize = random.nextInt(100);
+
+            if (randX + randSize > WIDTH) {
+                randX -= randSize;
             }
             if (randX < 0) {
                 randX = 0;
             }
-            if (randY + 50 > HEIGHT) {
-                randY -= 50;
+            if (randY + randSize > HEIGHT) {
+                randY -= randSize;
             }
             if (randY < 0) {
                 randY = 0;
             }
 
-            boolean test = checkCols(randX, randY);
+            boolean test = checkCols(randX, randY, randSize);
 
             if (test) {
-                posTaken.add(new Position(randX, randY));
+                posTaken.add(new Position(randX, randY, randSize));
                 break;
             }
         }
+
+        Position position = new Position(randX, randY, randSize);
 
         int randomShapeID = random.nextInt(2);
 
@@ -74,11 +78,11 @@ public class Task1 extends JFrame {
 
         switch (randomShapeID) {
             case 0: {
-                shape = new Rectangle(randomColor, new Position(randX, randY), this.getGraphics());
+                shape = new Rectangle(randomColor, new Position(randX, randY, randSize), this.getGraphics());
                 break;
             }
             case 1: {
-                shape = new Circle(randomColor, new Position(randX, randY), this.getGraphics());
+                shape = new Circle(randomColor, new Position(randX, randY, randSize), this.getGraphics());
                 break;
             }
             default: {
@@ -95,10 +99,12 @@ public class Task1 extends JFrame {
     }
 
     //    а метод valueInRange используется внутри него для определения, находится ли позиция в заданном диапазоне координат.
-    public boolean checkCols(int x, int y) {
+    public boolean checkCols(int x, int y, int size) {
         for (Position in : posTaken) {
-            boolean xOv = valueInRange(in.getX(), x, x + 50) || valueInRange(x, in.getX(), in.getX() + 50);
-            boolean yOv = valueInRange(in.getY(), y, y + 50) || valueInRange(y, in.getY(), in.getY() + 50);
+            boolean xOv = valueInRange(in.getX(), x, x + size) ||
+                    valueInRange(x, in.getX(), in.getX() + in.getSize());
+            boolean yOv = valueInRange(in.getY(), y, y + size) ||
+                    valueInRange(y, in.getY(), in.getY() + in.getSize());
 
             if (xOv && yOv) {
                 return false;
@@ -108,4 +114,3 @@ public class Task1 extends JFrame {
         return true;
     }
 }
-

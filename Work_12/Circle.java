@@ -10,8 +10,9 @@ public class Circle extends Shape {
 
     @Override
     public void draw() {
-        this.getGraphics().drawOval(getPosition().getX(), getPosition().getY(), 50,50);
+        int size = getPosition().getSize();
+        this.getGraphics().drawOval(getPosition().getX(), getPosition().getY(), size,size);
         getGraphics().setColor(getColor());
-        getGraphics().fillOval(getPosition().getX(), getPosition().getY(), 50, 50);
+        getGraphics().fillOval(getPosition().getX(), getPosition().getY(), size, size);
     }
 }

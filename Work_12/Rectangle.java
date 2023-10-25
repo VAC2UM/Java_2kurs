@@ -1,6 +1,7 @@
 package Work_12;
 
 import Work_12.Position;
+
 import java.awt.*;
 
 public class Rectangle extends Shape {
@@ -10,8 +11,10 @@ public class Rectangle extends Shape {
 
     @Override
     public void draw() {
-        getGraphics().drawRect(getPosition().getX(), getPosition().getY(), 50,50);
+        int size = getPosition().getSize();
+        getGraphics().drawRect(getPosition().getX(), getPosition().getY(), size, size);
         getGraphics().setColor(getColor());
-        getGraphics().fillRect(getPosition().getX(), getPosition().getY(), 50, 50);
+        getGraphics().fillRect(getPosition().getX(), getPosition().getY(), size, size);
+
     }
 }

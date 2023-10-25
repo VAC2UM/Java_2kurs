@@ -5,9 +5,20 @@ public class Position {
 
     public int y;
 
-    Position(int x, int y) {
+    public int size;
+
+    Position(int x, int y, int size) {
         this.x = x;
         this.y = y;
+        this.size = size;
+    }
+
+    public int getSize() {
+        return size;
+    }
+
+    public void setSize(int size) {
+        this.size = size;
     }
 
     public int getX() {
