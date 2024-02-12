@@ -5,6 +5,8 @@ public class Ball {
     private String color;
     private double V;
 
+    private int test;
+
     public Ball(String c, double v){
         color = c;
         V = v;
