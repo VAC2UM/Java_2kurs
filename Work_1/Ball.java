@@ -32,4 +32,8 @@ public class Ball {
     public String toString()    {
         return "color: " + this.color + " V: " + this.V;
     }
+
+    public int TestInt(){
+        return test;
+    }
 }
