@@ -5,6 +5,8 @@ public class Ball {
     private String color;
     private double V;
 
+    private int test;
+
     public Ball(String c, double v){
         color = c;
         V = v;
@@ -29,5 +31,9 @@ public class Ball {
     //@Override //определяет переопределен ли метод
     public String toString()    {
         return "color: " + this.color + " V: " + this.V;
+    }
+
+    public int TestInt(){
+        return test;
     }
 }
