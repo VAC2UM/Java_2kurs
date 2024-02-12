@@ -2,7 +2,7 @@ package Work_7;
 
 public class Magazine implements Printable{
     private String title;
-
+    public int Test2;
     public Magazine(String title) {
         this.title = title;
     }

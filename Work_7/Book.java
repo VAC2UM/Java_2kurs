@@ -2,7 +2,7 @@ package Work_7;
 
 public class Book implements Printable{
     private String title;
-
+    int Test1;
     public Book(String title) {
         this.title = title;
     }
