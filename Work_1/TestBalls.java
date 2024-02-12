@@ -1,7 +1,7 @@
 package Work_1;
 
 public class TestBalls {
-
+    public int test2;
     public static void main(String[] args) {
         Ball n1 = new Ball("Red", 5.0);
         Ball n2 = new Ball("Green", 7.0);
